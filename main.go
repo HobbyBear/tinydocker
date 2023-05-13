@@ -33,7 +33,6 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}
-		fmt.Println("init proc end", initCmd)
 		return
 	case "init":
 		pwd, err := os.Getwd()
@@ -42,7 +41,6 @@ func main() {
 			return
 		}
 		path := pwd + "/ubuntu-base-16.04.6-base-amd64"
-		fmt.Println(path)
 		// systemd 为init进程时，挂载默认是共享模式挂载的，共享模式挂载会让所有命名空间都能看到各自的挂载的目录
 		// 后续调用pivot root会失败，所以将命名空间声明为私有的，MS_REC是mount选项中的一个标志，用于递归地挂载一个目录及其所有子目录
 		syscall.Mount("", "/", "", syscall.MS_PRIVATE|syscall.MS_REC, "")
@@ -56,7 +54,6 @@ func main() {
 			fmt.Println("mkdir", err)
 			return
 		}
-		fmt.Println(path, path+"/.old")
 		err = syscall.PivotRoot(path, path+"/.old")
 		if err != nil {
 			fmt.Println("pivot root ", err)
@@ -65,7 +62,6 @@ func main() {
 		syscall.Chdir("/")
 
 		defaultMountFlags := syscall.MS_NOEXEC | syscall.MS_NOSUID | syscall.MS_NODEV
-		//syscall.Mount("", "/", "", syscall.MS_PRIVATE|syscall.MS_REC, "")
 		syscall.Mount("proc", "/proc", "proc", uintptr(defaultMountFlags), "")
 
 		cmd := os.Args[2]
