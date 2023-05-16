@@ -4,3 +4,6 @@
 
 ![tty.gif](https://s2.loli.net/2023/05/16/eVm8ME9ArWOvD5k.gif)
 
+## 公众号
+
+![WechatIMG143.jpeg](https://s2.loli.net/2023/04/12/QzqyFU6tjAxKame.jpg)
