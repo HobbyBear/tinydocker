@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"syscall"
+	"tinydocker/config"
 	"tinydocker/log"
 	"tinydocker/network"
 	"tinydocker/workspace"
@@ -18,6 +19,7 @@ func main() {
 	}
 	switch os.Args[1] {
 	case "run":
+		fmt.Println(config.Title())
 		// 在一个新的命名空间
 		initCmd, err := os.Readlink("/proc/self/exe")
 		if err != nil {

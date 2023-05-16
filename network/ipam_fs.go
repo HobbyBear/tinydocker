@@ -31,6 +31,7 @@ func (ipamfs *ipAmFs) AllocIp(subnet string) (net.IP, error) {
 	bitmap := ipamfs.subnets[subnet]
 	if bitmap == nil || bitmap.Bitmap == nil {
 		bitmap = InitBitMap(2 << (total - ones))
+		bitmap.BitSet(1)
 		ipamfs.subnets[subnet] = bitmap
 	}
 
