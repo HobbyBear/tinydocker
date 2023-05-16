@@ -1,6 +1,6 @@
 package config
 
 const (
-	IpAmStorageFsPath = "./subnet.json"
-	NetStoragePath    = "./network.json"
+	IpAmStorageFsPath = "/root/subnet.json"
+	NetStoragePath    = "/root/network.json"
 )
