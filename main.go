@@ -5,21 +5,25 @@ import (
 	"os"
 	"os/exec"
 	"syscall"
+	"tinydocker/log"
+	"tinydocker/network"
 	"tinydocker/workspace"
 )
 
 // ./tinydocker run 容器名  可执行文件名
 func main() {
-
+	if err := network.Init(); err != nil {
+		log.Error("net work fail err=%s", err)
+		return
+	}
 	switch os.Args[1] {
 	case "run":
 		// 在一个新的命名空间
 		initCmd, err := os.Readlink("/proc/self/exe")
 		if err != nil {
-			fmt.Println("get init process error ", err)
+			log.Error("get init process error %s", err)
 			return
 		}
-		containerName := os.Args[2]
 		os.Args[1] = "init"
 		cmd := exec.Command(initCmd, os.Args[1:]...)
 		cmd.SysProcAttr = &syscall.SysProcAttr{
@@ -30,19 +34,25 @@ func main() {
 		cmd.Stdin = os.Stdin
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
-		err = cmd.Run()
+		err = cmd.Start()
 		if err != nil {
 			fmt.Println(err)
 		}
-		workspace.DelMntNamespace(containerName)
+		if err := network.ConfigDefaultNetworkInNewNet(cmd.Process.Pid); err != nil {
+			log.Error("config network fail %s", err)
+		}
+		cmd.Wait()
 		return
 	case "init":
 		var (
 			containerName = os.Args[2]
 			cmd           = os.Args[3]
 		)
+		log.Info("Wait  SIGUSR2 signal arrived ....")
+		// 等待父进程网络命名空间设置完毕
+		network.WaitParentSetNewNet()
 		if err := workspace.SetMntNamespace(containerName); err != nil {
-			fmt.Println(err)
+			log.Error("SetMntNamespace %s", err)
 			return
 		}
 		syscall.Chdir("/")
@@ -50,12 +60,12 @@ func main() {
 		syscall.Mount("proc", "/proc", "proc", uintptr(defaultMountFlags), "")
 		err := syscall.Exec(cmd, os.Args[3:], os.Environ())
 		if err != nil {
-			fmt.Println("exec proc fail ", err)
+			log.Error("exec proc fail %s", err)
 			return
 		}
-		fmt.Println("forever exec it ")
+		log.Error("forever not  exec it ")
 		return
 	default:
-		fmt.Println("not valid cmd")
+		log.Error("not valid cmd")
 	}
 }
