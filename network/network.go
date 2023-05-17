@@ -96,6 +96,9 @@ func Init() error {
 		if err := BridgeDriver.CreateNetwork(defaultNetName, defaultSubnet, BridgeNetworkType); err != nil {
 			return fmt.Errorf("err=%s", err)
 		}
+		if err := IpAmfs.SetIpUsed(defaultSubnet); err != nil {
+			return err
+		}
 	}
 	return nil
 }

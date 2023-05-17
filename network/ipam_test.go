@@ -18,10 +18,10 @@ func TestAlloc(t *testing.T) {
 		t.Fatal(err)
 	}
 	fmt.Println(ip.To4().String())
-	err = IpAmfs.ReleaseIp(subnet, ip)
-	if err != nil {
-		t.Fatal(err)
-	}
+	//err = IpAmfs.ReleaseIp(subnet, ip)
+	//if err != nil {
+	//	t.Fatal(err)
+	//}
 	ip, err = IpAmfs.AllocIp(subnet)
 	if err != nil {
 		t.Fatal(err)

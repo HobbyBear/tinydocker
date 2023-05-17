@@ -57,7 +57,7 @@ func InitWriteLogger(w io.Writer, depth int, flag int, isColor bool) ColorLogger
 	logger.IsColor = isColor
 	logger.Depth = depth
 	//初使每个等级的日志
-	logger.debug = log.New(w, logger.setColorString(DEBUG, "[BUG]"), flag)
+	logger.debug = log.New(w, logger.setColorString(DEBUG, "[DEBUG]"), flag)
 	logger.info = log.New(w, logger.setColorString(INFO, "[INF]"), flag)
 	logger.warning = log.New(w, logger.setColorString(WARNING, "[WAR]"), flag)
 	logger.error = log.New(w, logger.setColorString(ERROR, "[ERR]"), flag)
