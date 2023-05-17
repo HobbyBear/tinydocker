@@ -65,7 +65,7 @@ func (ipamfs *ipAmFs) ReleaseIp(subnet string, ip net.IP) error {
 		return err
 	}
 	pos := getIPIndex(ip, cidr.Mask)
-	bitmap.BitClean(pos - 1)
+	bitmap.BitClean(pos)
 	return ipamfs.sync()
 }
 
