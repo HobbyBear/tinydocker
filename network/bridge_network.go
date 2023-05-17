@@ -152,28 +152,23 @@ func (b *bridgeDriver) setContainerIp(peerName string, pid int, containerIp net.
 	if err != nil {
 		return fmt.Errorf("fail config endpoint: %v", err)
 	}
-
 	loLink, err := netlink.LinkByName("lo")
 	if err != nil {
 		return fmt.Errorf("fail config endpoint: %v", err)
 	}
-
+	// 进入容器的网络命名空间
 	defer enterContainerNetns(&peerLink, pid)()
-
 	containerVethInterfaceIP := *gateway
 	containerVethInterfaceIP.IP = containerIp
 	if err = setInterfaceIP(peerName, containerVethInterfaceIP.String()); err != nil {
 		return fmt.Errorf("%v,%s", containerIp, err)
 	}
-
 	if err := netlink.LinkSetUp(peerLink); err != nil {
 		return fmt.Errorf("netlink.LinkSetUp fail  name=%s err=%s", peerName, err)
 	}
-
 	if err := netlink.LinkSetUp(loLink); err != nil {
 		return fmt.Errorf("netlink.LinkSetUp fail  name=%s err=%s", peerName, err)
 	}
-
 	_, cidr, _ := net.ParseCIDR("0.0.0.0/0")
 	defaultRoute := &netlink.Route{
 		LinkIndex: peerLink.Attrs().Index,
@@ -207,7 +202,7 @@ func enterContainerNetns(vethLink *netlink.Link, pid int) func() {
 		log.Error("error get current netns, %v", err)
 	}
 
-	// 设置当前进程到新的网络namespace，并在函数执行完成之后再恢复到之前的namespace
+	// 设置当前线程到新的网络namespace，并在函数执行完成之后再恢复到之前的namespace
 	if err = netns.Set(netns.NsHandle(nsFD)); err != nil {
 		log.Error("error set netns, %v", err)
 	}
