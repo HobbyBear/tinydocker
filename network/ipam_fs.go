@@ -31,11 +31,11 @@ func (ipamfs *ipAmFs) AllocIp(subnet string) (net.IP, error) {
 	bitmap := ipamfs.subnets[subnet]
 	if bitmap == nil || bitmap.Bitmap == nil {
 		bitmap = InitBitMap(2 << (total - ones))
-		bitmap.BitSet(1)
 		ipamfs.subnets[subnet] = bitmap
 	}
 
-	for pos := 0; pos < (total - ones); pos++ {
+	// pos 为0 是网络号不能分配ip，
+	for pos := 1; pos <= (1<<(total-ones) - 2); pos++ {
 		if bitmap.BitExist(pos) {
 			continue
 		}
@@ -43,7 +43,6 @@ func (ipamfs *ipAmFs) AllocIp(subnet string) (net.IP, error) {
 		for setCnt := 4; setCnt >= 1; setCnt-- {
 			[]byte(ip)[4-setCnt] += uint8(pos >> (8 * (setCnt - 1)))
 		}
-		ip[3] += 1
 		break
 	}
 	err = ipamfs.sync()

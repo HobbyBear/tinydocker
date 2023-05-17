@@ -2,6 +2,7 @@ package network
 
 import (
 	"fmt"
+	"net"
 	"testing"
 )
 
@@ -29,9 +30,17 @@ func TestAlloc(t *testing.T) {
 }
 
 func TestBitMap_BitClean(t *testing.T) {
-	bitM := InitBitMap(10)
-	bitM.BitSet(5)
-	fmt.Println(bitM.BitExist(5))
-	bitM.BitClean(5)
-	fmt.Println(bitM.BitExist(5))
+	ip, cidr, err := net.ParseCIDR("192.168.0.1/24")
+	if err != nil {
+		t.Fatal(err)
+	}
+	ip = ip.To4()
+	ones, total := cidr.Mask.Size()
+	fmt.Println(total - ones)
+	fmt.Println(1 << (total - ones))
+	//bitM := InitBitMap(10)
+	//bitM.BitSet(5)
+	//fmt.Println(bitM.BitExist(5))
+	//bitM.BitClean(5)
+	//fmt.Println(bitM.BitExist(5))
 }
