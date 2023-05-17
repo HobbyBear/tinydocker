@@ -3,7 +3,6 @@ package network
 import (
 	"encoding/binary"
 	"encoding/json"
-	"fmt"
 	"net"
 	"os"
 	"tinydocker/config"
@@ -63,7 +62,6 @@ func (ipamfs *ipAmFs) AllocIp(subnet string) (net.IP, error) {
 			continue
 		}
 		bitmap.BitSet(pos)
-		fmt.Println(bitmap.BitExist(pos))
 		firstIP := ipToUint32(ip.Mask(cidr.Mask))
 		ip = uint32ToIP(firstIP + uint32(pos))
 		break
