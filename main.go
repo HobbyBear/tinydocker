@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"syscall"
+	"tinydocker/cgroups"
 	"tinydocker/config"
 	"tinydocker/log"
 	"tinydocker/network"
@@ -40,10 +41,17 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}
+
+		containerName := os.Args[2]
+		if err := cgroups.ConfigDefaultCgroups(cmd.Process.Pid, containerName); err != nil {
+			log.Error("config cgroups fail %s", err)
+		}
+
 		if err := network.ConfigDefaultNetworkInNewNet(cmd.Process.Pid); err != nil {
 			log.Error("config network fail %s", err)
 		}
 		cmd.Wait()
+		cgroups.CleanCgroupsPath(containerName)
 		return
 	case "init":
 		var (
