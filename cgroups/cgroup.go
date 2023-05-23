@@ -3,19 +3,22 @@ package cgroups
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"path"
 	"strconv"
+	"tinydocker/log"
 )
 
 const (
 	cgroupsPath = "/sys/fs/cgroup"
+	dockerName  = "tinydocker"
 )
 
 func ConfigDefaultCgroups(pid int, containerName string) error {
 
 	var (
-		cpuPath    = path.Join(cgroupsPath, "cpu", "tinydocker", containerName)
-		memoryPath = path.Join(cgroupsPath, "memory", "tinydocker", containerName)
+		cpuPath    = path.Join(cgroupsPath, "cpu", dockerName, containerName)
+		memoryPath = path.Join(cgroupsPath, "memory", dockerName, containerName)
 	)
 
 	// 创建容器的控制目录
@@ -44,5 +47,13 @@ func ConfigDefaultCgroups(pid int, containerName string) error {
 }
 
 func CleanCgroupsPath(containerName string) error {
-	return os.RemoveAll(path.Join(cgroupsPath, containerName))
+	output, err := exec.Command("cgdelete", "-r", fmt.Sprintf("memory:%s/%s", dockerName, containerName)).Output()
+	if err != nil {
+		log.Error("cgdelete fail err=%s output=%s", err, string(output))
+	}
+	output, err = exec.Command("cgdelete", "-r", fmt.Sprintf("cpu:%s/%s", dockerName, containerName)).Output()
+	if err != nil {
+		log.Error("cgdelete fail err=%s output=%s", err, string(output))
+	}
+	return nil
 }
