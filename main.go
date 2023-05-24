@@ -51,6 +51,7 @@ func main() {
 			log.Error("config network fail %s", err)
 		}
 		cmd.Wait()
+		cgroups.CleanCgroupsPath(containerName)
 		workspace.DelMntNamespace(containerName)
 		return
 	case "init":
