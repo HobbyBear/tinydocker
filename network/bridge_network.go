@@ -79,9 +79,19 @@ func (b *bridgeDriver) CreateNetwork(networkName string, subnet string, networkT
 	if err := NetMgr.LoadConf(); err != nil {
 		return fmt.Errorf("netMgr loadConf fail %s", err)
 	}
-	if _, ok := NetMgr.Storage[networkName]; ok {
-		log.Info("exist default network ,will not create new network ")
-		return nil
+
+	if netConf, ok := NetMgr.Storage[networkName]; ok {
+		switch netConf.Driver {
+		case "bridge":
+			// 系统重启后需要重新建立网桥配置
+			_, err := netlink.LinkByName(netConf.BridgeName)
+			if err == nil {
+				log.Info("exist default network ,will not create new network ")
+				return nil
+			}
+		default:
+			return fmt.Errorf("not support network driver")
+		}
 	}
 
 	// 创建网桥

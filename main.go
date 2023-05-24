@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"syscall"
+	"time"
 	"tinydocker/config"
 	"tinydocker/log"
 	"tinydocker/network"
@@ -13,12 +14,12 @@ import (
 
 // ./tinydocker run 容器名  可执行文件名
 func main() {
-	if err := network.Init(); err != nil {
-		log.Error("net work fail err=%s", err)
-		return
-	}
 	switch os.Args[1] {
 	case "run":
+		if err := network.Init(); err != nil {
+			log.Error("net work fail err=%s", err)
+			return
+		}
 		fmt.Println(config.Title())
 		// 在一个新的命名空间
 		initCmd, err := os.Readlink("/proc/self/exe")
@@ -40,6 +41,8 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}
+		// 等待子进程完全启动
+		time.Sleep(2 * time.Second)
 		if err := network.ConfigDefaultNetworkInNewNet(cmd.Process.Pid); err != nil {
 			log.Error("config network fail %s", err)
 		}
