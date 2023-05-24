@@ -44,6 +44,7 @@ func main() {
 			log.Error("config network fail %s", err)
 		}
 		cmd.Wait()
+		workspace.DelMntNamespace(os.Args[2])
 		return
 	case "init":
 		var (
