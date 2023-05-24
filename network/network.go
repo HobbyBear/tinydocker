@@ -87,18 +87,12 @@ func (n networktype) String() string {
 }
 
 func Init() error {
-	// 对默认网络进行初试化
-	err := NetMgr.LoadConf()
-	if err != nil {
-		return fmt.Errorf("load netMgr conf err=%s", err)
+	// 对默认网络进行初始化
+	if err := BridgeDriver.CreateNetwork(defaultNetName, defaultSubnet, BridgeNetworkType); err != nil {
+		return fmt.Errorf("err=%s", err)
 	}
-	if NetMgr.Storage[defaultNetName] == nil {
-		if err := BridgeDriver.CreateNetwork(defaultNetName, defaultSubnet, BridgeNetworkType); err != nil {
-			return fmt.Errorf("err=%s", err)
-		}
-		if err := IpAmfs.SetIpUsed(defaultSubnet); err != nil {
-			return err
-		}
+	if err := IpAmfs.SetIpUsed(defaultSubnet); err != nil {
+		return err
 	}
 	return nil
 }
@@ -120,6 +114,7 @@ func ConfigDefaultNetworkInNewNet(pid int) error {
 		return fmt.Errorf("setContainerIp fail err=%s peername=%s pid=%d ip=%v conf=%+v", err, vethLink.PeerName, pid, ip, networkConf)
 	}
 	// 通知子进程设置完毕
+	log.Debug("parent process set ip success")
 	return noticeSunProcessNetConfigFin(pid)
 }
 

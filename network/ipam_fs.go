@@ -35,7 +35,7 @@ func (ipamfs *ipAmFs) SetIpUsed(subnet string) error {
 		ipamfs.subnets[cidr.String()] = bitmap
 	}
 	pos := getIPIndex(ip, cidr.Mask)
-	log.Debug("set bridge ip %s pos %d \n", ip, pos)
+	log.Debug("set  ip %s pos %d \n", ip, pos)
 	bitmap.BitSet(pos)
 	return ipamfs.sync()
 }
