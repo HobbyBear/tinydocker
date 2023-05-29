@@ -120,11 +120,6 @@ func (b *bridgeDriver) CreateNetwork(networkName string, subnet string, networkT
 	return NetMgr.Sync()
 }
 
-func (b *bridgeDriver) DeleteNetwork(name string) error {
-	//TODO implement me
-	panic("implement me")
-}
-
 func (b *bridgeDriver) CrateVeth(networkName string) (*netlink.Veth, *NetConf, error) {
 	// 检查网络命名是否存在
 	if err := NetMgr.LoadConf(); err != nil {

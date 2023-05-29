@@ -20,7 +20,7 @@ func main() {
 			log.Error("net work fail err=%s", err)
 			return
 		}
-		fmt.Println(config.Title())
+		fmt.Println(config.Banner())
 		// 在一个新的命名空间
 		initCmd, err := os.Readlink("/proc/self/exe")
 		if err != nil {
