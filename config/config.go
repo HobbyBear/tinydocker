@@ -10,7 +10,7 @@ const (
 	NetStoragePath    = "/root/network.json"
 )
 
-func Title() string {
+func Banner() string {
 	return fmt.Sprintf("%s %s %s %s %s %s ",
 		gocolor.SRedBG("welcome"),
 		gocolor.SGreenBG("to"),
