@@ -4,6 +4,12 @@
 
 ![tty.gif](https://s2.loli.net/2023/05/16/eVm8ME9ArWOvD5k.gif)
 
+
+## 纠错
+
+如果有疑问或者发现错误，可以在相应的 Issues 进行提问或勘误。
+
+
 ## 公众号
 
 ![WechatIMG143.jpeg](https://s2.loli.net/2023/04/12/QzqyFU6tjAxKame.jpg)
