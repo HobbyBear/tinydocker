@@ -1,0 +1,767 @@
+{
+  "mode": "graphify",
+  "files": [
+    ".claude/rules/repomind.md",
+    ".claude/skills/repomind-init/SKILL.md",
+    ".claude/skills/repomind-init/agents/openai.yaml",
+    ".claude/skills/repomind-prd/SKILL.md",
+    ".claude/skills/repomind-prd/agents/openai.yaml",
+    ".claude/skills/repomind-query/SKILL.md",
+    ".claude/skills/repomind-query/agents/openai.yaml",
+    ".claude/skills/repomind-summary/SKILL.md",
+    ".claude/skills/repomind-summary/agents/openai.yaml",
+    ".codex/skills/repomind-init/SKILL.md",
+    ".codex/skills/repomind-init/agents/openai.yaml",
+    ".codex/skills/repomind-prd/SKILL.md",
+    ".codex/skills/repomind-prd/agents/openai.yaml",
+    ".codex/skills/repomind-query/SKILL.md",
+    ".codex/skills/repomind-query/agents/openai.yaml",
+    ".codex/skills/repomind-summary/SKILL.md",
+    ".codex/skills/repomind-summary/agents/openai.yaml",
+    ".gitattributes",
+    ".gitignore",
+    ".repomind/.gitignore",
+    ".repomind/.kb-format.json",
+    ".repomind/graph/summary.json",
+    "AGENTS.md",
+    "ReadMe.md",
+    "cgroups/cgroup.go",
+    "config/config.go",
+    "go.mod",
+    "go.sum",
+    "graphify-out/.gitignore",
+    "graphify-out/GRAPH_REPORT.md",
+    "graphify-out/graph.html",
+    "graphify-out/graph.json",
+    "graphify-out/manifest.json",
+    "log/log.go",
+    "main.go",
+    "network/bitmap.go",
+    "network/bitset_test.go",
+    "network/bridge_network.go",
+    "network/ipam_fs.go",
+    "network/ipam_test.go",
+    "network/network.go",
+    "ubuntu-rootfs-16.04.06.tar.gz",
+    "workspace/workspace.go"
+  ],
+  "module_candidates": [
+    {
+      "name": "cgroups",
+      "paths": [
+        "cgroups"
+      ]
+    },
+    {
+      "name": "log",
+      "paths": [
+        "log"
+      ]
+    },
+    {
+      "name": "main.go",
+      "paths": [
+        "main.go"
+      ]
+    },
+    {
+      "name": ".claude",
+      "paths": [
+        ".claude"
+      ]
+    },
+    {
+      "name": "AGENTS.md",
+      "paths": [
+        "AGENTS.md"
+      ]
+    },
+    {
+      "name": "ReadMe.md",
+      "paths": [
+        "ReadMe.md"
+      ]
+    },
+    {
+      "name": "config",
+      "paths": [
+        "config"
+      ]
+    },
+    {
+      "name": "network",
+      "paths": [
+        "network"
+      ]
+    },
+    {
+      "name": "workspace",
+      "paths": [
+        "workspace"
+      ]
+    },
+    {
+      "name": ".codex",
+      "paths": [
+        ".codex"
+      ]
+    }
+  ],
+  "symbols": [
+    {
+      "name": "cgroup.go",
+      "file": "cgroups/cgroup.go",
+      "pkg": "cgroups"
+    },
+    {
+      "name": "ConfigDefaultCgroups()",
+      "file": "cgroups/cgroup.go",
+      "pkg": "cgroups"
+    },
+    {
+      "name": "CleanCgroupsPath()",
+      "file": "cgroups/cgroup.go",
+      "pkg": "cgroups"
+    },
+    {
+      "name": "config.go",
+      "file": "config/config.go",
+      "pkg": "config"
+    },
+    {
+      "name": "Banner()",
+      "file": "config/config.go",
+      "pkg": "config"
+    },
+    {
+      "name": "log.go",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "ColorLogger",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "Logger",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "WaitGroup",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "New()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "Writer",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "InitWriteLogger()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": ".setColor()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": ".setColorString()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": ".SetLevel()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": ".Debug()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": ".Info()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": ".Warn()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": ".Error()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "Debug()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "Info()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "Warn()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "Error()",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "main.go",
+      "file": "main.go",
+      "pkg": "main.go"
+    },
+    {
+      "name": "main()",
+      "file": "main.go",
+      "pkg": "main.go"
+    },
+    {
+      "name": "bitMap",
+      "file": "network/bitmap.go",
+      "pkg": "network"
+    },
+    {
+      "name": "InitBitMap()",
+      "file": "network/bitmap.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".BitExist()",
+      "file": "network/bitmap.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".BitSet()",
+      "file": "network/bitmap.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".BitClean()",
+      "file": "network/bitmap.go",
+      "pkg": "network"
+    },
+    {
+      "name": "arrIndex()",
+      "file": "network/bitmap.go",
+      "pkg": "network"
+    },
+    {
+      "name": "bytePos()",
+      "file": "network/bitmap.go",
+      "pkg": "network"
+    },
+    {
+      "name": "bitset_test.go",
+      "file": "network/bitset_test.go",
+      "pkg": "network"
+    },
+    {
+      "name": "TestBitSet()",
+      "file": "network/bitset_test.go",
+      "pkg": "network"
+    },
+    {
+      "name": "T",
+      "file": "network/bitset_test.go",
+      "pkg": "network"
+    },
+    {
+      "name": "bridge_network.go",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "bridgeDriver",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".Name()",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "truncate()",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "createBridge()",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "IPNet",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "genInterfaceIp()",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "setSNat()",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".CreateNetwork()",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "networktype",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".CrateVeth()",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "Veth",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "NetConf",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".setContainerIp()",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "IP",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "enterContainerNetns()",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "Link",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "setInterfaceIP()",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "ipam_fs.go",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": "ipAmFs",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": "bitMap",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".SetIpUsed()",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".AllocIp()",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": "IP",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".ReleaseIp()",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": "uint32ToIP()",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": "getIPIndex()",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": "IPMask",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": "ipToUint32()",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".loadConf()",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".sync()",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": "ipam_test.go",
+      "file": "network/ipam_test.go",
+      "pkg": "network"
+    },
+    {
+      "name": "TestAlloc()",
+      "file": "network/ipam_test.go",
+      "pkg": "network"
+    },
+    {
+      "name": "T",
+      "file": "network/ipam_test.go",
+      "pkg": "network"
+    },
+    {
+      "name": "TestBitMap_BitClean()",
+      "file": "network/ipam_test.go",
+      "pkg": "network"
+    },
+    {
+      "name": "network.go",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "NetConf",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "IPNet",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "netMgr",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".Sync()",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".LoadConf()",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "networktype",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": ".String()",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "Init()",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "ConfigDefaultNetworkInNewNet()",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "noticeSunProcessNetConfigFin()",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "WaitParentSetNewNet()",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "workspace.go",
+      "file": "workspace/workspace.go",
+      "pkg": "workspace"
+    },
+    {
+      "name": "workerLayer()",
+      "file": "workspace/workspace.go",
+      "pkg": "workspace"
+    },
+    {
+      "name": "mntLayer()",
+      "file": "workspace/workspace.go",
+      "pkg": "workspace"
+    },
+    {
+      "name": "writeLayer()",
+      "file": "workspace/workspace.go",
+      "pkg": "workspace"
+    },
+    {
+      "name": "mntOldLayer()",
+      "file": "workspace/workspace.go",
+      "pkg": "workspace"
+    },
+    {
+      "name": "SetMntNamespace()",
+      "file": "workspace/workspace.go",
+      "pkg": "workspace"
+    },
+    {
+      "name": "delMntNamespace()",
+      "file": "workspace/workspace.go",
+      "pkg": "workspace"
+    },
+    {
+      "name": "IpAmStorageFsPath",
+      "file": "config/config.go",
+      "pkg": "config"
+    },
+    {
+      "name": "NetStoragePath",
+      "file": "config/config.go",
+      "pkg": "config"
+    },
+    {
+      "name": "defaultLogger",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "Debug (package-level)",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "Info (package-level)",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "Warn (package-level)",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "Error (package-level)",
+      "file": "log/log.go",
+      "pkg": "log"
+    },
+    {
+      "name": "main",
+      "file": "main.go",
+      "pkg": "main.go"
+    },
+    {
+      "name": "BridgeDriver",
+      "file": "network/bridge_network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "IpAmfs",
+      "file": "network/ipam_fs.go",
+      "pkg": "network"
+    },
+    {
+      "name": "NetMgr",
+      "file": "network/network.go",
+      "pkg": "network"
+    },
+    {
+      "name": "delMntNamespace",
+      "file": "workspace/workspace.go",
+      "pkg": "workspace"
+    },
+    {
+      "name": "repomind-query",
+      "file": ".claude/rules/repomind.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "repomind-summary",
+      "file": ".claude/rules/repomind.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "Frontmatter Metadata Routing",
+      "file": ".claude/rules/repomind.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "Summary Gate",
+      "file": ".claude/rules/repomind.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "Graphify Full Rebuild",
+      "file": ".claude/skills/repomind-init/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "Concept Confidence Levels",
+      "file": ".claude/skills/repomind-init/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "Knowledge Base Format Migration",
+      "file": ".claude/skills/repomind-init/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "Module Candidate Classification",
+      "file": ".claude/skills/repomind-init/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "repomind-prd Skill",
+      "file": ".claude/skills/repomind-prd/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "repomind-query Skill",
+      "file": ".claude/skills/repomind-query/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "repomind-summary Skill",
+      "file": ".claude/skills/repomind-summary/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "repomind-init Skill (Codex)",
+      "file": ".codex/skills/repomind-init/SKILL.md",
+      "pkg": ".codex"
+    },
+    {
+      "name": "repomind-prd Skill (Codex)",
+      "file": ".codex/skills/repomind-prd/SKILL.md",
+      "pkg": ".codex"
+    },
+    {
+      "name": "repomind-query Skill (Codex)",
+      "file": ".codex/skills/repomind-query/SKILL.md",
+      "pkg": ".codex"
+    },
+    {
+      "name": "repomind-summary Skill (Codex)",
+      "file": ".codex/skills/repomind-summary/SKILL.md",
+      "pkg": ".codex"
+    },
+    {
+      "name": "RepoMind Rules (AGENTS.md)",
+      "file": "AGENTS.md",
+      "pkg": "AGENTS.md"
+    },
+    {
+      "name": "kb-metadata Command",
+      "file": ".claude/skills/repomind-query/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "kb-migrate Command",
+      "file": ".claude/skills/repomind-init/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "graph-scan Command",
+      "file": ".codex/skills/repomind-init/SKILL.md",
+      "pkg": ".codex"
+    },
+    {
+      "name": "query-findings.json Mechanism",
+      "file": ".claude/skills/repomind-query/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "Frontmatter-based Routing",
+      "file": "AGENTS.md",
+      "pkg": "AGENTS.md"
+    },
+    {
+      "name": "Synchronous Blocking Requirement for summary",
+      "file": ".claude/skills/repomind-summary/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "Knowledge Types: concepts, modules, troubles",
+      "file": "AGENTS.md",
+      "pkg": "AGENTS.md"
+    },
+    {
+      "name": "Code Search Priority Chain",
+      "file": ".claude/skills/repomind-query/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "Summary Gate Mechanism",
+      "file": ".claude/skills/repomind-summary/SKILL.md",
+      "pkg": ".claude"
+    },
+    {
+      "name": "Tinydocker Project",
+      "file": "ReadMe.md",
+      "pkg": "ReadMe.md"
+    },
+    {
+      "name": "Containerization Principles (namespaces, rootfs, cgroups, network)",
+      "file": "ReadMe.md",
+      "pkg": "ReadMe.md"
+    },
+    {
+      "name": "repomind-prd Agent Interface (Claude)",
+      "file": ".claude/skills/repomind-prd/agents/openai.yaml",
+      "pkg": ".claude"
+    },
+    {
+      "name": "repomind-query Agent Interface (Claude)",
+      "file": ".claude/skills/repomind-query/agents/openai.yaml",
+      "pkg": ".claude"
+    },
+    {
+      "name": "repomind-summary Agent Interface (Claude)",
+      "file": ".claude/skills/repomind-summary/agents/openai.yaml",
+      "pkg": ".claude"
+    }
+  ]
+}
