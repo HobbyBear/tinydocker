@@ -1,0 +1,9 @@
+# Only commit the essential graph outputs.
+# Internal cache files are machine-specific and regeneratable.
+*
+!.gitignore
+!graph.json
+!GRAPH_REPORT.md
+!manifest.json
+!graph.html
+!.vocab.txt

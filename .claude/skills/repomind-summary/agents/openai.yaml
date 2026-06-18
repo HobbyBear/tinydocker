@@ -1,0 +1,3 @@
+interface:
+  display_name: "RepoMind Summary"
+  short_description: "Run the post-code or post-answer summary gate and persist reusable RepoMind findings"

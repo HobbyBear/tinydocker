@@ -1,0 +1,3 @@
+interface:
+  display_name: "RepoMind Query"
+  short_description: "Route business/code questions through RepoMind knowledge before answering"

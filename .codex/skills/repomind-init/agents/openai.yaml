@@ -1,0 +1,3 @@
+interface:
+  display_name: "RepoMind Init"
+  short_description: "Initialize RepoMind knowledge files and seed business concepts/modules"

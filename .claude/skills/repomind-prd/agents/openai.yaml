@@ -1,0 +1,3 @@
+interface:
+  display_name: "RepoMind PRD"
+  short_description: "Extract business knowledge from historical PRD files into RepoMind concepts"
