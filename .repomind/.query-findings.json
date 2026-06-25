@@ -1,7 +1,0 @@
-{
-  "trigger": "问答",
-  "intent": "用户询问项目基本信息（第三次重复提问）",
-  "known_modules": ["容器生命周期模块"],
-  "new_findings": [],
-  "needs_summary": false
-}
