@@ -1,0 +1,7 @@
+{
+  "trigger": "问答",
+  "intent": "重新梳理项目架构，全量阅读所有 modules 和 concepts 文档并验证代码一致性",
+  "known_modules": ["容器生命周期模块", "Cgroups 资源限制模块", "容器网络模块", "容器文件系统模块"],
+  "new_findings": [],
+  "needs_summary": false
+}
